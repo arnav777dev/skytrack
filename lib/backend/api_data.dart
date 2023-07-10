@@ -3,7 +3,7 @@ import 'dart:convert';
 
 
 class apidata {
-  String location = "";
+  String? location = "";
   String temp = "";
   String temp_min = "";
   String temp_max = "";
@@ -12,6 +12,9 @@ class apidata {
   String humidity = "";
   String air_speed = "";
   String name = "";
+  String sunrise = "";
+  String sunset = "";
+  String id = "";
 
   // constructor
   apidata(this.location);
@@ -31,18 +34,27 @@ class apidata {
       this.location = data["name"];
 
       // getting temp
-      this.temp = (temp_data["temp"] - 273.15).toStringAsFixed(2);
-      this.feel_like = (temp_data["feels_like"]- 273.15).toStringAsFixed(2);
-      this.temp_min = (temp_data["temp_min"]- 273.15).toStringAsFixed(2);
-      this.temp_max = (temp_data["temp_max"]- 273.15).toStringAsFixed(2);
+      this.temp = (temp_data["temp"] - 272.15).toStringAsFixed(1);
+      this.feel_like = (temp_data["feels_like"]- 273.15).toStringAsFixed(1);
+      this.temp_min = (temp_data["temp_min"]- 275.15).toStringAsFixed(1);
+      this.temp_max = (temp_data["temp_max"]- 270.15).toStringAsFixed(1);
       this.humidity = temp_data["humidity"].toString();
 
       // getting description
       List weather = data["weather"];
       this.desc = weather[0]["main"];
+      this.id = weather[0]["icon"];
+      print(this.id);
+      this.name = "in " + data["name"] ;
 
       // getting air_speed
       this.air_speed = (data["wind"]["speed"]*3.6).toStringAsFixed(2);
+
+      //getting sunrise & sunset
+      DateTime rise = DateTime.fromMillisecondsSinceEpoch(data["sys"]["sunrise"] * 1000);
+      DateTime set = DateTime.fromMillisecondsSinceEpoch(data["sys"]["sunset"] * 1000);
+      this.sunrise = "${rise.hour}:${rise.minute}";
+      this.sunset = "${set.hour - 12}:${set.minute}";
     }
     catch(e){
       // getting location
@@ -58,8 +70,15 @@ class apidata {
       // getting description
       this.desc = "-";
 
+      this.name = "Not Found";
+
       // getting air_speed
       this.air_speed = "-";
+
+      //geting sunrise & sunset
+      this.sunset = "-";
+      this.sunrise ="-";
+      this.id = "50d";
     }
   }
 }

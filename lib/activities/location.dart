@@ -1,24 +1,48 @@
 import 'package:flutter/material.dart';
 
-class location extends StatefulWidget {
-  const location({Key? key}) : super(key: key);
+/// Flutter code sample for [AlertDialog].
 
-  @override
-  State<location> createState() => _locationState();
-}
 
-class _locationState extends State<location> {
+class location extends StatelessWidget {
+  const location({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-          children: [
-            Text("Locations More", style: TextStyle(fontSize: 30),),
-            ElevatedButton(onPressed: (){
-              Navigator.pushNamed(context, "/home");
-            }, child: Text("Back to Home"))
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('AlertDialog Sample')),
+        body: const Center(
+          child: DialogExample(),
+        ),
+      ),
+    );
+  }
+}
+
+class DialogExample extends StatelessWidget {
+  const DialogExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('AlertDialog Title'),
+          content: const Text('AlertDialog description'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
           ],
-        )
+        ),
+      ),
+      child: const Text('Show Dialog'),
     );
   }
 }
