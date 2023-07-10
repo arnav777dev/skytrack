@@ -1,16 +1,6 @@
 # skytrack
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+skytrack
+It is an Android application that provides weather information for various cities around the world. It offers users to access current weather conditions, including temperature, humidity, wind speed, and sunrise/sunset times. • Seamless integration with OpenWeatherMap API to fetch accurate weather data. • The dynamic quotes, background image, and greetings changes with the time of day to create an immersive and visually appealing experience. • Technologies Used: Flutter framework, Dart programming language, OpenWeatherMap API.
+![afeter](https://github.com/arnav777dev/skytrack-Android-App/assets/98037912/4eb87ca3-35b4-4582-9f2e-be10749ae729)
+![ev](https://github.com/arnav777dev/skytrack-Android-App/assets/98037912/7ab11d0a-b229-44c1-a07e-ada1f02331a1)
+![mor](https://github.com/arnav777dev/skytrack-Android-App/assets/98037912/e465cd70-ee98-47ab-850d-bbbc2526cdc7)
